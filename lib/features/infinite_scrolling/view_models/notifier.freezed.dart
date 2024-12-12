@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$InfiniteScrollingState {
-  double get pixels => throw _privateConstructorUsedError;
+  List<String> get bookIds => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   /// Create a copy of InfiniteScrollingState
@@ -32,7 +32,7 @@ abstract class $InfiniteScrollingStateCopyWith<$Res> {
           $Res Function(InfiniteScrollingState) then) =
       _$InfiniteScrollingStateCopyWithImpl<$Res, InfiniteScrollingState>;
   @useResult
-  $Res call({double pixels, bool isLoading});
+  $Res call({List<String> bookIds, bool isLoading});
 }
 
 /// @nodoc
@@ -51,14 +51,14 @@ class _$InfiniteScrollingStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pixels = null,
+    Object? bookIds = null,
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
-      pixels: null == pixels
-          ? _value.pixels
-          : pixels // ignore: cast_nullable_to_non_nullable
-              as double,
+      bookIds: null == bookIds
+          ? _value.bookIds
+          : bookIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ abstract class _$$InfiniteScrollingStateImplCopyWith<$Res>
       __$$InfiniteScrollingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double pixels, bool isLoading});
+  $Res call({List<String> bookIds, bool isLoading});
 }
 
 /// @nodoc
@@ -94,14 +94,14 @@ class __$$InfiniteScrollingStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pixels = null,
+    Object? bookIds = null,
     Object? isLoading = null,
   }) {
     return _then(_$InfiniteScrollingStateImpl(
-      pixels: null == pixels
-          ? _value.pixels
-          : pixels // ignore: cast_nullable_to_non_nullable
-              as double,
+      bookIds: null == bookIds
+          ? _value._bookIds
+          : bookIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -113,18 +113,25 @@ class __$$InfiniteScrollingStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InfiniteScrollingStateImpl implements _InfiniteScrollingState {
-  const _$InfiniteScrollingStateImpl({this.pixels = 0, this.isLoading = false});
+  const _$InfiniteScrollingStateImpl(
+      {required final List<String> bookIds, this.isLoading = false})
+      : _bookIds = bookIds;
 
+  final List<String> _bookIds;
   @override
-  @JsonKey()
-  final double pixels;
+  List<String> get bookIds {
+    if (_bookIds is EqualUnmodifiableListView) return _bookIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_bookIds);
+  }
+
   @override
   @JsonKey()
   final bool isLoading;
 
   @override
   String toString() {
-    return 'InfiniteScrollingState(pixels: $pixels, isLoading: $isLoading)';
+    return 'InfiniteScrollingState(bookIds: $bookIds, isLoading: $isLoading)';
   }
 
   @override
@@ -132,13 +139,14 @@ class _$InfiniteScrollingStateImpl implements _InfiniteScrollingState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InfiniteScrollingStateImpl &&
-            (identical(other.pixels, pixels) || other.pixels == pixels) &&
+            const DeepCollectionEquality().equals(other._bookIds, _bookIds) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pixels, isLoading);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_bookIds), isLoading);
 
   /// Create a copy of InfiniteScrollingState
   /// with the given fields replaced by the non-null parameter values.
@@ -152,11 +160,11 @@ class _$InfiniteScrollingStateImpl implements _InfiniteScrollingState {
 
 abstract class _InfiniteScrollingState implements InfiniteScrollingState {
   const factory _InfiniteScrollingState(
-      {final double pixels,
+      {required final List<String> bookIds,
       final bool isLoading}) = _$InfiniteScrollingStateImpl;
 
   @override
-  double get pixels;
+  List<String> get bookIds;
   @override
   bool get isLoading;
 
