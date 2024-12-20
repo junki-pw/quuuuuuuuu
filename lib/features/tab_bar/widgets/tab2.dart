@@ -13,6 +13,7 @@ class TabBarTestTab2TabViewState extends ConsumerState<TabBarTestTab2TabView>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final state = ref.watch(tabBarTestTab2AsyncInitProvider);
 
     return state.when(
@@ -40,8 +41,17 @@ class TabBarTestTab2TabViewState extends ConsumerState<TabBarTestTab2TabView>
                 .read(tabBarTestTab2AsyncInitProvider.future)
                 .catchError((e) => print('error: $e'));
           },
-          child: ListView(
-            children: const [
+          child: Column(
+            spacing: 6,
+            children: [
+              for (final _ in [1, 1, 1, 1, 1]) ...[
+                Text('成功'),
+                const SizedBox(height: 6),
+              ],
+              Text('成功'),
+              Text('成功'),
+              Text('成功'),
+              Text('成功'),
               Text('成功'),
             ],
           ),
