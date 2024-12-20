@@ -6,7 +6,7 @@ part of 'notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$infiniteScrollingHash() => r'320f2180a47c065f4c31b05e6af6f2369ec49be2';
+String _$infiniteScrollingHash() => r'4881a4f7c2c8fe5eac7376dccd3bd11509f17b11';
 
 /// See also [InfiniteScrolling].
 @ProviderFor(InfiniteScrolling)

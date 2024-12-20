@@ -189,7 +189,7 @@ final bookRefProvider = AutoDisposeProvider<CollectionReference<Book>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef BookRefRef = AutoDisposeProviderRef<CollectionReference<Book>>;
-String _$bookRepoHash() => r'45f9eb2487a2e496ab71b811911f975e86142ba6';
+String _$bookRepoHash() => r'a75c15c413212874930a3fbaf4bed08d8a934c2a';
 
 /// See also [BookRepo].
 @ProviderFor(BookRepo)
