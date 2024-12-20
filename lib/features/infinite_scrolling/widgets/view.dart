@@ -20,11 +20,30 @@ class InfiniteScrollingView extends HookConsumerWidget {
       }
     });
 
+    // ref.watch(infiniteScrollingPixelsProvider);
+
     final bool isLoading =
         ref.watch(infiniteScrollingProvider).valueOrNull?.isLoading ?? false;
 
     final List<String> bookIds =
         ref.watch(infiniteScrollingProvider).valueOrNull?.bookIds ?? [];
+
+    final value = ref.watch(infiniteScrollingProvider).value;
+    print('value: ${value?.bookIds}');
+
+    final valueOrNull = ref.watch(infiniteScrollingProvider).valueOrNull;
+    print('valueOrNull: $valueOrNull');
+
+    // final requireValue = ref.watch(infiniteScrollingProvider).requireValue;
+    // print('requireValue: $requireValue');
+
+    // return ref.watch(infiniteScrollingProvider).when(
+    //       error: (error, stack) => PrimaryWhenErrorWidget(error),
+    //       loading: () => const PrimaryWhenLoadingWidget(),
+    //       data: (data) {
+    //         return Container();
+    //       },
+    //     );
 
     return Scaffold(
       appBar: AppBar(
@@ -33,6 +52,9 @@ class InfiniteScrollingView extends HookConsumerWidget {
       body: ListView(
         controller: scrollController
           ..addListener(() {
+            // print('pixels: ${scrollController.offset}');
+            // print('pixels: ${scrollController.position.minScrollExtent}');
+            // print('pixels: ${scrollController.position.maxScrollExtent}');
             ref
                 .read(infiniteScrollingPixelsProvider.notifier)
                 .updateScrollPixels(scrollController.position.pixels);

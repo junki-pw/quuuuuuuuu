@@ -47,7 +47,7 @@ class InfiniteScrolling extends _$InfiniteScrolling {
         .fetchBooks(limit: 20, bookId: data.bookIds.lastOrNull)
         .then(
           ((books) => state = AsyncData(
-                data.copyWith(
+                state.requireValue.copyWith(
                   bookIds: [
                     ...data.bookIds,
                     ...books.map((e) => e.id),

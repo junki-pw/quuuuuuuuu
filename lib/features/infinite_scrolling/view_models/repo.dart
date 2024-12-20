@@ -70,6 +70,7 @@ class BookRepo extends _$BookRepo {
     if (bookId != null) {
       final documentSnapshot =
           await db.collection(Book.collectionName).doc(bookId).get();
+      _addState([Book.fromJson(documentSnapshot.data() ?? {})]);
 
       /// 注意点：startAt などを使用する場合は orderBy を先に置く必要がある
       query = query.startAfterDocument(documentSnapshot);
